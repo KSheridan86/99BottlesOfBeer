@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>99 Bottles of Beer</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			padding: 20px;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
+
+		.lyrics {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -10px;
+			padding: 0;
+			list-style: none;
+		}
+
+		.lyrics li {
+			flex-basis: 33.33%;
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.lyrics li:nth-child(2n) {
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<h1>99 Bottles of Beer</h1>
+	<ul class="lyrics"></ul>
+
+	<script>
+		// Define the lyrics as an array of strings
+		const lyrics = [
+			" bottles of beer on the wall, ",
+			" bottles of beer.\n",
+			"Take one down, pass it around, ",
+			" bottles of beer on the wall.\n"
+		];
+
+		// Loop through the lyrics and generate the full song
+		for (let i = 99; i > 0; i--) {
+            if (i === 1) {
+                lyrics[0] = " bottle of beer on the wall, ";
+                lyrics[1] = " bottle of beer.\n";
+                lyrics[2] = "Take it down, pass it around, ";
+                lyrics[3] = " bottle of beer on the wall.\n";
+            }
+			let li = document.createElement("li");
+			let lyric = i + lyrics[0] + i + lyrics[1] + lyrics[2] + (i - 1) + lyrics[3];
+			li.innerText = lyric;
+			document.querySelector(".lyrics").appendChild(li);
+		}
+	</script>
+</body>
+</html>
